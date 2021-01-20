@@ -6,6 +6,12 @@
   --blue: #08c;
 }
 
+.line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
 html,
 body {
   font-family: "Poppins", sans-serif;
@@ -62,6 +68,10 @@ h5 {
   font-size: 28px;
 }
 
+header {
+  padding: 24px;
+}
+
 header .user-wrapper {
   position: absolute;
   right: 24px;
@@ -80,9 +90,77 @@ header .user-wrapper .material-icons {
 
 footer {
   height: 100px;
+  margin-top: 64px;
   background: var(--black);
 }
 
 footer .brand-logo {
   height: 50px;
+}
+
+.product-wrapper .product.product-template {
+  display: none;
+}
+
+.product-wrapper {
+  width: 100%;
+  padding: 0 24px;
+}
+
+.product-wrapper .product {
+  width: 220px;
+  display: inline-grid;
+  margin: 8px;
+  background-color: var(--white);
+  padding: 8px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 3px 0px #888888;
+}
+
+.product-wrapper .product .product-description {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--blue);
+  margin: 16px 0;
+  cursor: pointer;
+  overflow: hidden;
+  height: 100px;
+}
+
+.product-wrapper .product .product-price,
+.product-wrapper .product .author {
+  font-weight: 500;
+  color: var(--black);
+}
+
+.product-wrapper .product .author {
+  text-overflow: ellipsis;
+  width: 220px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.product-wrapper .product .product-price .value,
+.product-wrapper .product .author .value {
+  font-weight: normal;
+}
+
+.product-wrapper .product .product-price .value {
+  font-size: 22px;
+}
+
+.product-wrapper .product .img-wrapper {
+  text-align: center;
+  width: 210px;
+  height: 307px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.product-wrapper .product .product-image {
+  height: 307px;
+}
+
+.product-wrapper .product .add-to-cart {
+  margin-top: 8px;
 }

@@ -17,9 +17,7 @@
 
   <body>
     <header>
-      <div class="brand-logo">
-        THE SHOP
-      </div>
+      <div class="brand-logo">THE<br />BOOK<br />SHOP</div>
       <div class="user-wrapper">
         <span class="material-icons"> account_circle </span>
         Olá Margarida! (<a href="#" class="logout">sair</a>)
@@ -35,14 +33,28 @@
       </nav>
     </header>
 
-    <section></section>
+    <section>
+      <div class="product-wrapper">
+        <div class="product product-template">
+          <div class="img-wrapper">
+            <img src="img/products/1.jpg" class="product-image" />
+          </div>
+          <span class="product-description line-clamp"></span>
+          <span class="author"> Author: <span class="value"></span> </span>
+          <span class="product-price">
+            Price: <span class="value"></span>
+          </span>
+          <a href="#" class="add-to-cart">Add to cart</a>
+        </div>
+      </div>
+    </section>
 
     <footer>
       <div class="brand-logo">
-        THE SHOP
+        THE BOOK SHOP
       </div>
       <p>Copyright 2021 Margarida Ramos</p>
     </footer>
-    <script src="js/scripts.js"></script>
+    <script type="module" src="js/scripts.js"></script>
   </body>
 </html>
