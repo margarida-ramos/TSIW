@@ -1,4 +1,88 @@
+:root {
+  --black: #222529;
+  --light-bg: #f4f4f4;
+  --white: #fff;
+  --text-color: #777;
+  --blue: #08c;
+}
+
 html,
 body {
   font-family: "Poppins", sans-serif;
+  background-color: var(--light-bg);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+header,
+footer {
+  padding: 10px;
+}
+
+a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: var(--black);
+}
+
+.brand-logo {
+  width: 200px;
+  height: 100px;
+  display: inline-block;
+  font-size: 40px;
+  font-weight: 900;
+}
+
+.main-nav {
+  width: calc(100% - 210px);
+  display: inline-block;
+  text-align: right;
+  margin-top: 24px;
+}
+
+.main-nav ul li {
+  list-style: none;
+  display: inline-block;
+  margin: 0 8px 0 8px;
+  text-align: center;
+}
+
+.main-nav ul li .material-icons {
+  position: relative;
+  top: 7px;
+  cursor: pointer;
+  font-size: 28px;
+}
+
+header .user-wrapper {
+  position: absolute;
+  right: 24px;
+  top: 6px;
+  font-size: 14px;
+}
+
+header .user-wrapper a {
+  font-size: 14px;
+}
+
+header .user-wrapper .material-icons {
+  position: relative;
+  top: 7px;
+}
+
+footer {
+  height: 100px;
+  background: var(--black);
+}
+
+footer .brand-logo {
+  height: 50px;
 }
