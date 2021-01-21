@@ -4,12 +4,20 @@
   --white: #fff;
   --text-color: #777;
   --blue: #08c;
+  --red: #ed7e63;
+  --error-bg: #fcf6ef;
+  --green: #55c76e;
+  --success-bg: #effcf1;
 }
 
 .line-clamp {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+}
+
+.hide {
+  display: none !important;
 }
 
 html,
@@ -21,18 +29,6 @@ body {
   padding: 0;
 }
 
-body.detail .product-wrapper {
-  display: none;
-}
-
-body.detail .product-detail-wrapper {
-  display: block;
-}
-
-body:not(.detail) .product-detail-wrapper {
-  display: none;
-}
-
 header,
 footer {
   padding: 10px;
@@ -41,6 +37,10 @@ footer {
 a {
   color: var(--blue);
   text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 h1,
@@ -95,6 +95,10 @@ header .user-wrapper a {
   font-size: 14px;
 }
 
+header .user-wrapper.without-login {
+  top: 15px;
+}
+
 header .user-wrapper .material-icons {
   position: relative;
   top: 7px;
@@ -127,8 +131,8 @@ footer .footer-links a {
 
 .product-wrapper,
 .product-detail-wrapper {
-  width: 100%;
   padding: 0 24px;
+  text-align: center;
 }
 
 .product-wrapper .product {
@@ -149,6 +153,10 @@ footer .footer-links a {
   cursor: pointer;
   overflow: hidden;
   height: 90px;
+}
+
+.product-wrapper .product .product-description:hover {
+  text-decoration: underline;
 }
 
 .product-wrapper .product .product-price,
@@ -179,6 +187,7 @@ footer .footer-links a {
   height: 307px;
   overflow: hidden;
   margin: 0 auto;
+  cursor: pointer;
 }
 
 .product-wrapper .product .product-image {
@@ -187,6 +196,13 @@ footer .footer-links a {
 
 .product-wrapper .product .add-to-cart {
   margin-top: 8px;
+  background-color: #f3f1f1;
+  padding: 6px;
+  border-radius: 3px;
+}
+
+.product-wrapper .product .add-to-cart:hover {
+  box-shadow: 0px 2px 3px 0px #888888;
 }
 
 .product-detail-wrapper .go-back {
@@ -197,4 +213,99 @@ footer .footer-links a {
 .product-detail-wrapper .product-detail img {
   margin: 0 auto;
   display: block;
+}
+
+.login-wrapper,
+.signup-wrapper {
+  width: 100%;
+  text-align: center;
+}
+
+.login-wrapper h1,
+.signup-wrapper h1 {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.login-wrapper input,
+.signup-wrapper input {
+  padding: 8px;
+  border: 0;
+  display: block;
+  width: 200px;
+  margin: 8px auto;
+}
+
+.login-wrapper button,
+.signup-wrapper button {
+  background-color: var(--blue);
+  border: 0;
+  line-height: 30px;
+  color: var(--white);
+  border-radius: 3px;
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-top: 24px;
+  cursor: pointer;
+}
+
+.login-wrapper .signup-message,
+.signup-wrapper .signup-message {
+  font-size: 12px;
+  width: 250px;
+}
+
+.error:not(:empty),
+.error:not(:empty) {
+  font-size: 12px;
+  color: var(--red);
+  background-color: var(--error-bg);
+  padding: 16px;
+}
+
+.success:not(:empty),
+.success:not(:empty) {
+  font-size: 12px;
+  color: var(--green);
+  background-color: var(--success-bg);
+  padding: 16px;
+}
+
+table.shopping-cart {
+  width: 800px;
+  margin-left: 24px;
+  border: 1px solid black;
+  padding: 24px;
+  margin-top: 24px;
+}
+
+table.shopping-cart img.product-image {
+  width: 100px;
+}
+
+table.shopping-cart .material-icons {
+  cursor: pointer;
+}
+
+.view-cart-wrapper .total {
+  position: fixed;
+  top: 290px;
+  right: 100px;
+  border: 1px solid lightgrey;
+  background: var(--white);
+  width: 300px;
+  height: 200px;
+  padding: 24px;
+}
+
+.view-cart-wrapper .total h3,
+.view-cart-wrapper .total .total-price {
+  display: inline-block;
+}
+
+.view-cart-wrapper .total .checkout {
+  display: block;
+  text-align: center;
+  font-weight: 500;
 }

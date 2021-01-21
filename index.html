@@ -18,23 +18,120 @@
   <body>
     <header>
       <div class="brand-logo">THE<br />BOOK<br />SHOP</div>
-      <div class="user-wrapper">
+      <div class="user-wrapper with-login hide">
         <span class="material-icons"> account_circle </span>
-        Olá Margarida! (<a href="#" class="logout">sair</a>)
+        Olá <span class="current-username"></span>! (<a href="#" class="logout"
+          >sair</a
+        >)
+      </div>
+      <div class="user-wrapper without-login">
+        <a href="#" class="login">login</a>
       </div>
       <nav class="main-nav">
         <ul>
           <li>
-            <span class="material-icons">
+            <span class="material-icons view-cart">
               shopping_basket
             </span>
+            <div class="shop-count"></div>
           </li>
         </ul>
       </nav>
     </header>
 
+    <section class="view-cart">
+      <div class="view-cart-wrapper hide">
+        <span class="material-icons go-back">
+          arrow_back
+        </span>
+        <table class="shopping-cart">
+          <thead>
+            <tr>
+              <th width="100"></th>
+              <th width="250">Product Name</th>
+              <th width="80">Price</th>
+              <th width="80">Quantity</th>
+              <th width="80">Remove</th>
+            </tr>
+          </thead>
+          <tbody class="shopping-cart-table">
+            <tr class="template-row hide">
+              <td><img src="img/products/" class="product-image" /></td>
+              <td class="product-name"></td>
+              <td class="product-price"></td>
+              <td class="quantity">1</td>
+              <td class="remove">
+                <span class="material-icons go-back">
+                  delete
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="total">
+          <h3>TOTAL:</h3>
+          <div class="total-price"></div>
+          <a href="#" class="checkout">CHECKOUT</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="signup">
+      <div class="signup-wrapper hide">
+        <h1>Sign Up</h1>
+        <form class="signup-form">
+          <input type="text" class="username" placeholder="Username" required />
+          <input
+            type="password"
+            class="password"
+            placeholder="Password"
+            required
+          />
+          <input
+            type="password"
+            id="password-confirm"
+            class="password-confirm"
+            required
+            placeholder="Confirm password"
+          />
+          <div class="error"></div>
+          <div class="success"></div>
+          <button class="signup-button">Sign Up</button>
+          <br />
+          <span class="signup-message"
+            >Already have an account?
+            <a href="#" class="login-button">Login here</a>
+          </span>
+        </form>
+      </div>
+    </section>
+
+    <section class="login">
+      <div class="login-wrapper hide">
+        <h1>Login</h1>
+        <form class="login-form">
+          <input type="text" class="username" placeholder="Username" required />
+          <input
+            type="password"
+            class="password"
+            placeholder="Password"
+            required
+          />
+          <div class="error"></div>
+          <div class="success"></div>
+          <button class="login-button">Login</button>
+          <br />
+          <span class="signup-message"
+            >Don't have an account?
+            <a href="#" class="signup-button">Register here</a>
+          </span>
+        </form>
+      </div>
+    </section>
+
     <section>
-      <div class="product-wrapper">
+      <div class="product-wrapper hide">
         <div class="product product-template">
           <div class="img-wrapper">
             <img src="img/products/1.jpg" class="product-image" />
@@ -48,15 +145,16 @@
         </div>
       </div>
 
-      <div class="product-detail-wrapper">
-        <span class="material-icons go-back">
+      <div class="product-detail-wrapper hide">
+        <span class="material-icons go-back-detail">
           arrow_back
         </span>
-        <div class="product-detail product-detail-template">
+        <div class="product-detail product-detail-template hide">
           <img src="" class="product-image" />
           <h1 class="product-title"></h1>
           <h5 class="author"></h5>
           <span class="price"></span>
+          <a href="#" class="add-to-cart">Add to cart</a>
         </div>
       </div>
     </section>
