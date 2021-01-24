@@ -154,6 +154,8 @@ const showDetail = (productId) => {
   newProductDetail.classList.remove("product-detail-template");
   newProductDetail.classList.remove("hide");
 
+  newProductDetail.setAttribute("data-id", productId);
+
   let product = PRODUCTS.filter((product) => product.id == productId);
 
   if (product.length !== 1) {
@@ -385,9 +387,10 @@ const signup = (e) => {
 
 const addToCart = (e) => {
   e.preventDefault();
-  const productId = e.currentTarget.closest(".product").getAttribute("data-id");
+  const productId =
+    e.currentTarget.closest(".product")?.getAttribute("data-id") ||
+    e.currentTarget.closest(".product-detail")?.getAttribute("data-id");
   const basket = JSON.parse(localStorage.getItem("basket") || "[]");
-
   basket.push(productId);
   localStorage.setItem("basket", JSON.stringify(basket));
   maybeShowCart();
