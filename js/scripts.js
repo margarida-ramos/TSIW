@@ -1,6 +1,7 @@
 import PRODUCTS from "./products.js";
 
-const handleNavigate = (event, asd) => {
+const handleNavigate = (event) => {
+  scrollToTop();
   switch (event.view) {
     case "detail":
       const productId = event.product_id;
@@ -15,11 +16,38 @@ const handleNavigate = (event, asd) => {
     case "shopping-cart":
       showShoppingCart();
       break;
+    case "aboutus":
+      showAboutUs();
+      break;
+    case "faq":
+      showFAQ();
+      break;
+    case "contact":
+      showContact();
+      break;
     case "products":
     default:
       showProducts();
       break;
   }
+};
+
+const showAboutUs = () => {
+  closeAllPanes();
+  document.querySelector(".aboutus-wrapper").classList.remove("hide");
+  scrollToTop();
+};
+
+const showFAQ = () => {
+  closeAllPanes();
+  document.querySelector(".faq-wrapper").classList.remove("hide");
+  scrollToTop();
+};
+
+const showContact = () => {
+  closeAllPanes();
+  document.querySelector(".contact-wrapper").classList.remove("hide");
+  scrollToTop();
 };
 
 const showShoppingCart = () => {
@@ -115,8 +143,20 @@ const closeAllPanes = () => {
   hideDetail();
   hideSignup();
   hideLogin();
+  hideFAQ();
+  hideContact();
+  hideAboutUs();
   hideShoppingCart();
 };
+
+const hideAboutUs = () =>
+  document.querySelector(".aboutus-wrapper").classList.add("hide");
+
+const hideContact = () =>
+  document.querySelector(".contact-wrapper").classList.add("hide");
+
+const hideFAQ = () =>
+  document.querySelector(".faq-wrapper").classList.add("hide");
 
 const hideShoppingCart = () =>
   document.querySelector(".view-cart-wrapper").classList.add("hide");
@@ -301,6 +341,24 @@ const addToCart = (e) => {
   localStorage.setItem("basket", JSON.stringify(basket));
 };
 
+const _onAboutUsClick = (e) => {
+  e.preventDefault();
+  scrollToTop();
+  loadView({ view: "aboutus" });
+};
+
+const _onFaqClick = (e) => {
+  e.preventDefault();
+  scrollToTop();
+  loadView({ view: "faq" });
+};
+
+const _onContactClick = (e) => {
+  e.preventDefault();
+  scrollToTop();
+  loadView({ view: "contact" });
+};
+
 /**
  * Events
  */
@@ -329,6 +387,23 @@ document.querySelector("a.logout").addEventListener("click", logout);
 document.querySelector("button.login-button").addEventListener("click", login);
 
 document.querySelector(".view-cart").addEventListener("click", viewCart);
+
+document
+  .querySelector(".aboutus-btn")
+  .addEventListener("click", _onAboutUsClick);
+document.querySelector(".faq-btn").addEventListener("click", _onFaqClick);
+document
+  .querySelector(".contact-btn")
+  .addEventListener("click", _onContactClick);
+document
+  .querySelector(".aboutus-btn-footer")
+  .addEventListener("click", _onAboutUsClick);
+document
+  .querySelector(".faq-btn-footer")
+  .addEventListener("click", _onFaqClick);
+document
+  .querySelector(".contact-btn-footer")
+  .addEventListener("click", _onContactClick);
 
 displayProducts();
 maybeLogin();

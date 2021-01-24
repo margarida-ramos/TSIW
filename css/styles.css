@@ -317,3 +317,35 @@ table.shopping-cart .material-icons {
   text-align: center;
   font-weight: 500;
 }
+
+.aboutus-wrapper,
+.contact-wrapper,
+.faq-wrapper {
+  padding: 24px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.contact-wrapper {
+  width: max-content;
+  max-width: calc(100% - 48px);
+}
+
+.aboutus-wrapper {
+  width: auto;
+}
+
+.contact-wrapper iframe.map {
+  width: auto;
+  border: 1px solid var(--blue);
+}
+
+.contact-wrapper .address,
+.contact-wrapper .map-wrapper {
+  width: 50%;
+  display: inline-block;
+}
+
+.contact-wrapper .address {
+  margin-top: 24px;
+}
