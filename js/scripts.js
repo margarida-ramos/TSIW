@@ -52,6 +52,14 @@ const showContact = () => {
 
 const showShoppingCart = () => {
   closeAllPanes();
+
+  /** empty the list first */
+  const originalTemplate = document
+    .querySelector(".shopping-cart-table .template-row")
+    .cloneNode(true);
+  document.querySelector(".shopping-cart-table").innerHTML = "";
+  document.querySelector(".shopping-cart-table").appendChild(originalTemplate);
+
   document.querySelector(".view-cart-wrapper").classList.remove("hide");
   const basket = JSON.parse(localStorage.getItem("basket") || "[]");
   document
