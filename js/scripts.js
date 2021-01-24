@@ -133,6 +133,7 @@ const removeProductFromBasket = (e) => {
     ...basket.slice(basket.indexOf(e.currentTarget.productId) + 1)
   ];
   localStorage.setItem("basket", JSON.stringify(newBasket));
+  maybeShowCart();
   viewCart();
 };
 
@@ -478,19 +479,21 @@ const processFeedback = (e) => {
 
 const _onModifyPasswordClick = (e) => {
   e.preventDefault();
+  document.querySelector(".account-wrapper .error").innerHTML = "";
+  document.querySelector(".account-wrapper .success").innerHTML = "";
   const password = document.querySelector(".account-wrapper .password").value;
   const passwordConfirm = document.querySelector(
     ".account-wrapper .password-confirm"
   ).value;
 
   if (password !== passwordConfirm) {
-    document.querySelector(".feedback-wrapper .error").innerHTML =
+    document.querySelector(".account-wrapper .error").innerHTML =
       "Passwords don't match.";
     return;
   }
 
   if (password.length === 0 || passwordConfirm.length === 0) {
-    document.querySelector(".feedback-wrapper .error").innerHTML =
+    document.querySelector(".account-wrapper .error").innerHTML =
       "Both fields are required.";
     return;
   }
@@ -505,6 +508,8 @@ const _onModifyPasswordClick = (e) => {
   });
 
   localStorage.setItem("users", JSON.stringify(modifiedUsers));
+  document.querySelector(".account-wrapper .success").innerHTML =
+    "Password changed.";
 };
 
 /**

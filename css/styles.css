@@ -310,6 +310,7 @@ table.shopping-cart {
   padding: 24px;
   margin-top: 24px;
   background-color: var(--white);
+  margin: 0 auto;
 }
 
 table.shopping-cart img.product-image {
@@ -327,14 +328,12 @@ table.shopping-cart .material-icons {
 }
 
 .view-cart-wrapper .total {
-  position: fixed;
-  top: 290px;
-  right: 100px;
   border: 1px solid lightgrey;
   background: var(--white);
-  width: 300px;
-  height: 200px;
+  height: 24px;
   padding: 24px;
+  width: 750px;
+  margin: 24px auto 0 auto;
 }
 
 .view-cart-wrapper .empty-cart {
@@ -346,12 +345,14 @@ table.shopping-cart .material-icons {
 .view-cart-wrapper .total h3,
 .view-cart-wrapper .total .total-price {
   display: inline-block;
+  margin: 0;
 }
 
 .view-cart-wrapper .total .checkout {
   display: block;
   text-align: center;
   font-weight: 500;
+  float: right;
 }
 
 .view-cart-wrapper .go-back {
