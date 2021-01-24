@@ -68,9 +68,28 @@ const showShoppingCart = () => {
     .cloneNode(true);
   document.querySelector(".shopping-cart-table").innerHTML = "";
   document.querySelector(".shopping-cart-table").appendChild(originalTemplate);
-
   document.querySelector(".view-cart-wrapper").classList.remove("hide");
+
   const basket = JSON.parse(localStorage.getItem("basket") || "[]");
+
+  /** If the basket is empty, let's show the user a nice message */
+  if (basket.length === 0) {
+    document
+      .querySelector(".view-cart-wrapper .empty-cart")
+      .classList.remove("hide");
+    document
+      .querySelector(".view-cart-wrapper .not-empty-cart")
+      .classList.add("hide");
+    return;
+  } else {
+    document
+      .querySelector(".view-cart-wrapper .empty-cart")
+      .classList.add("hide");
+    document
+      .querySelector(".view-cart-wrapper .not-empty-cart")
+      .classList.remove("hide");
+  }
+
   document
     .querySelector(".view-cart-wrapper .go-back")
     .addEventListener("click", _onGoBackClick);
@@ -87,11 +106,25 @@ const showShoppingCart = () => {
     templateRow.querySelector(".product-price").innerHTML =
       PRODUCTS[entry].price;
     totalPrice += parseFloat(PRODUCTS[entry].price);
+    templateRow.querySelector(".delete").productId = entry;
+    templateRow
+      .querySelector(".delete")
+      .addEventListener("click", removeProductFromBasket);
     document.querySelector(".shopping-cart-table").appendChild(templateRow);
   });
   document.querySelector(".total-price").innerHTML =
     totalPrice.toFixed(2) + "€";
   scrollToTop();
+};
+
+const removeProductFromBasket = (e) => {
+  const basket = JSON.parse(localStorage.getItem("basket") || "[]");
+  const newBasket = [
+    ...basket.slice(0, basket.indexOf(e.currentTarget.productId)),
+    ...basket.slice(basket.indexOf(e.currentTarget.productId) + 1)
+  ];
+  localStorage.setItem("basket", JSON.stringify(newBasket));
+  viewCart();
 };
 
 const showSignup = () => {

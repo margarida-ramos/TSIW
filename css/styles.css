@@ -305,6 +305,7 @@ table.shopping-cart {
   border: 1px solid black;
   padding: 24px;
   margin-top: 24px;
+  background-color: var(--white);
 }
 
 table.shopping-cart img.product-image {
@@ -329,6 +330,12 @@ table.shopping-cart .material-icons {
   background: var(--white);
   width: 300px;
   height: 200px;
+  padding: 24px;
+}
+
+.view-cart-wrapper .empty-cart {
+  height: 200px;
+  display: block;
   padding: 24px;
 }
 

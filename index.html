@@ -45,38 +45,45 @@
     <section class="view-cart">
       <div class="view-cart-wrapper hide">
         <h1>Your shopping cart</h1>
-        <span class="material-icons go-back">
-          arrow_back
+        <span class="empty-cart hide">
+          Your shopping cart is empty. Have another look, we're sure that there
+          are some good books that will suit you.
         </span>
-        <table class="shopping-cart">
-          <thead>
-            <tr>
-              <th width="100"></th>
-              <th width="250">Product Name</th>
-              <th width="80">Price</th>
-              <th width="80">Quantity</th>
-              <th width="80">Remove</th>
-            </tr>
-          </thead>
-          <tbody class="shopping-cart-table">
-            <tr class="template-row hide">
-              <td><img src="img/products/" class="product-image" /></td>
-              <td class="product-name"></td>
-              <td class="product-price"></td>
-              <td class="quantity">1</td>
-              <td class="remove">
-                <span class="material-icons go-back">
-                  delete
-                </span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
 
-        <div class="total">
-          <h3>TOTAL:</h3>
-          <div class="total-price"></div>
-          <a href="#" class="checkout">CHECKOUT</a>
+        <div class="not-empty-cart">
+          <span class="material-icons go-back">
+            arrow_back
+          </span>
+          <table class="shopping-cart">
+            <thead>
+              <tr>
+                <th width="100"></th>
+                <th width="250">Product Name</th>
+                <th width="80">Price</th>
+                <th width="80">Quantity</th>
+                <th width="80">Remove</th>
+              </tr>
+            </thead>
+            <tbody class="shopping-cart-table">
+              <tr class="template-row hide">
+                <td><img src="img/products/" class="product-image" /></td>
+                <td class="product-name"></td>
+                <td class="product-price"></td>
+                <td class="quantity">1</td>
+                <td class="remove">
+                  <span class="material-icons delete">
+                    delete
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="total">
+            <h3>TOTAL:</h3>
+            <div class="total-price"></div>
+            <a href="#" class="checkout">CHECKOUT</a>
+          </div>
         </div>
       </div>
     </section>
