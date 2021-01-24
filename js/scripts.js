@@ -309,6 +309,9 @@ document.addEventListener("navigate", handleNavigate);
 document
   .querySelector(".go-back-detail")
   .addEventListener("click", _onGoBackClick);
+
+document.querySelector(".brand-logo").addEventListener("click", _onGoBackClick);
+
 document.querySelector("a.login").addEventListener("click", _onLoginClick);
 document
   .querySelector("a.login-button")

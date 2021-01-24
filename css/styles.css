@@ -57,6 +57,7 @@ h5 {
   display: inline-block;
   font-size: 40px;
   font-weight: 900;
+  cursor: pointer;
 }
 
 .main-nav {
