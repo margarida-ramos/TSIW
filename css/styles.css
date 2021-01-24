@@ -223,12 +223,14 @@ footer .footer-links a {
   display: block;
 }
 
+.feedback-wrapper,
 .login-wrapper,
 .signup-wrapper {
   width: 100%;
   text-align: center;
 }
 
+.feedback-wrapper h1,
 .login-wrapper h1,
 .signup-wrapper h1 {
   text-align: center;
@@ -236,6 +238,7 @@ footer .footer-links a {
   margin-bottom: 24px;
 }
 
+.feedback-wrapper input,
 .login-wrapper input,
 .signup-wrapper input {
   padding: 8px;
@@ -245,6 +248,7 @@ footer .footer-links a {
   margin: 8px auto;
 }
 
+.feedback-wrapper button,
 .login-wrapper button,
 .signup-wrapper button {
   background-color: var(--blue);
@@ -256,6 +260,13 @@ footer .footer-links a {
   text-transform: uppercase;
   margin-top: 24px;
   cursor: pointer;
+}
+
+.feedback-wrapper .feedback-form .message {
+  display: block;
+  margin: 0 auto;
+  width: 400px;
+  padding: 12px;
 }
 
 .login-wrapper .signup-message,

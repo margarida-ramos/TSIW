@@ -25,11 +25,20 @@ const handleNavigate = (event) => {
     case "contact":
       showContact();
       break;
+    case "feedback":
+      showFeedback();
+      break;
     case "products":
     default:
       showProducts();
       break;
   }
+};
+
+const showFeedback = () => {
+  closeAllPanes();
+  document.querySelector(".feedback-wrapper").classList.remove("hide");
+  scrollToTop();
 };
 
 const showAboutUs = () => {
@@ -155,10 +164,14 @@ const closeAllPanes = () => {
   hideContact();
   hideAboutUs();
   hideShoppingCart();
+  hideFeedback();
 };
 
 const hideAboutUs = () =>
   document.querySelector(".aboutus-wrapper").classList.add("hide");
+
+const hideFeedback = () =>
+  document.querySelector(".feedback-wrapper").classList.add("hide");
 
 const hideContact = () =>
   document.querySelector(".contact-wrapper").classList.add("hide");
@@ -378,6 +391,31 @@ const _onContactClick = (e) => {
   loadView({ view: "contact" });
 };
 
+const _onFeedbackClick = (e) => {
+  e.preventDefault();
+  scrollToTop();
+  loadView({ view: "feedback" });
+};
+
+const processFeedback = (e) => {
+  e.preventDefault();
+  // reset message placeholders
+  document.querySelector(".feedback-wrapper .error").innerHTML = "";
+  document.querySelector(".feedback-wrapper .success").innerHTML = "";
+
+  const name = document.querySelector(".feedback-wrapper .name").value;
+  const message = document.querySelector(".feedback-wrapper .message").value;
+
+  if (name.length === 0 || message.length === 0) {
+    document.querySelector(".feedback-wrapper .error").innerHTML =
+      "Both fields are required.";
+    return;
+  }
+
+  document.querySelector(".feedback-wrapper .success").innerHTML =
+    "Thank you for your feedback!";
+};
+
 /**
  * Events
  */
@@ -401,6 +439,10 @@ document
   .querySelector("button.signup-button")
   .addEventListener("click", signup);
 
+document
+  .querySelector("button.feedback-button")
+  .addEventListener("click", processFeedback);
+
 document.querySelector("a.logout").addEventListener("click", logout);
 
 document.querySelector("button.login-button").addEventListener("click", login);
@@ -423,6 +465,9 @@ document
 document
   .querySelector(".contact-btn-footer")
   .addEventListener("click", _onContactClick);
+document
+  .querySelector(".feedback-btn-footer")
+  .addEventListener("click", _onFeedbackClick);
 
 displayProducts();
 maybeLogin();
