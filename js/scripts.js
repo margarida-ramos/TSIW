@@ -28,6 +28,9 @@ const handleNavigate = (event) => {
     case "feedback":
       showFeedback();
       break;
+    case "account":
+      showAccount();
+      break;
     case "products":
     default:
       showProducts();
@@ -38,6 +41,12 @@ const handleNavigate = (event) => {
 const showFeedback = () => {
   closeAllPanes();
   document.querySelector(".feedback-wrapper").classList.remove("hide");
+  scrollToTop();
+};
+
+const showAccount = () => {
+  closeAllPanes();
+  document.querySelector(".account-wrapper").classList.remove("hide");
   scrollToTop();
 };
 
@@ -200,7 +209,11 @@ const closeAllPanes = () => {
   hideAboutUs();
   hideShoppingCart();
   hideFeedback();
+  hideAccount();
 };
+
+const hideAccount = () =>
+  document.querySelector(".account-wrapper").classList.add("hide");
 
 const hideAboutUs = () =>
   document.querySelector(".aboutus-wrapper").classList.add("hide");
@@ -323,7 +336,7 @@ const login = (e) => {
   document.querySelector(".current-username").innerHTML = user;
   document.querySelector(".with-login").classList.remove("hide");
   document.querySelector(".without-login").classList.add("hide");
-
+  document.querySelector(".account-btn").closest("li").classList.remove("hide");
   loadView({ view: "products" });
 };
 
@@ -334,6 +347,10 @@ const maybeLogin = () => {
     document.querySelector(".current-username").innerHTML = username;
     document.querySelector(".with-login").classList.remove("hide");
     document.querySelector(".without-login").classList.add("hide");
+    document
+      .querySelector(".account-btn")
+      .closest("li")
+      .classList.remove("hide");
   }
 };
 
@@ -343,6 +360,7 @@ const logout = (e) => {
   localStorage.setItem("username", "");
   document.querySelector(".with-login").classList.add("hide");
   document.querySelector(".without-login").classList.remove("hide");
+  document.querySelector(".account-btn").closest("li").classList.add("hide");
 };
 
 const signup = (e) => {
@@ -409,6 +427,12 @@ const maybeShowCart = () => {
   }
 };
 
+const _onAccountClick = (e) => {
+  e.preventDefault();
+  scrollToTop();
+  loadView({ view: "account" });
+};
+
 const _onAboutUsClick = (e) => {
   e.preventDefault();
   scrollToTop();
@@ -450,6 +474,37 @@ const processFeedback = (e) => {
 
   document.querySelector(".feedback-wrapper .success").innerHTML =
     "Thank you for your feedback!";
+};
+
+const _onModifyPasswordClick = (e) => {
+  e.preventDefault();
+  const password = document.querySelector(".account-wrapper .password").value;
+  const passwordConfirm = document.querySelector(
+    ".account-wrapper .password-confirm"
+  ).value;
+
+  if (password !== passwordConfirm) {
+    document.querySelector(".feedback-wrapper .error").innerHTML =
+      "Passwords don't match.";
+    return;
+  }
+
+  if (password.length === 0 || passwordConfirm.length === 0) {
+    document.querySelector(".feedback-wrapper .error").innerHTML =
+      "Both fields are required.";
+    return;
+  }
+
+  const username = localStorage.getItem("username");
+  const users = JSON.parse(localStorage.getItem("users") || "[]");
+  const modifiedUsers = users.map((user) => {
+    if (user.username === username) {
+      user.password = password;
+    }
+    return user;
+  });
+
+  localStorage.setItem("users", JSON.stringify(modifiedUsers));
 };
 
 /**
@@ -504,6 +559,14 @@ document
 document
   .querySelector(".feedback-btn-footer")
   .addEventListener("click", _onFeedbackClick);
+
+document
+  .querySelector(".account-btn")
+  .addEventListener("click", _onAccountClick);
+
+document
+  .querySelector(".modify-password-button")
+  .addEventListener("click", _onModifyPasswordClick);
 
 displayProducts();
 maybeLogin();

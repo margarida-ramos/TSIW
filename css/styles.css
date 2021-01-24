@@ -232,6 +232,7 @@ footer .footer-links a {
 }
 
 .feedback-wrapper,
+.account-wrapper,
 .login-wrapper,
 .signup-wrapper {
   width: 100%;
@@ -239,6 +240,7 @@ footer .footer-links a {
 }
 
 .feedback-wrapper h1,
+.account-wrapper h1,
 .login-wrapper h1,
 .signup-wrapper h1 {
   text-align: center;
@@ -247,6 +249,7 @@ footer .footer-links a {
 }
 
 .feedback-wrapper input,
+.account-wrapper input,
 .login-wrapper input,
 .signup-wrapper input {
   padding: 8px;
@@ -256,6 +259,7 @@ footer .footer-links a {
   margin: 8px auto;
 }
 
+.account-wrapper button,
 .feedback-wrapper button,
 .login-wrapper button,
 .signup-wrapper button {

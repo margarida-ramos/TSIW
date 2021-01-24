@@ -32,6 +32,7 @@
           <li><a href="#" class="aboutus-btn">About us</a></li>
           <li><a href="#" class="faq-btn">FAQ</a></li>
           <li><a href="#" class="contact-btn">Contact</a></li>
+          <li class="hide"><a href="#" class="account-btn">My Account</a></li>
           <li class="shop">
             <span class="material-icons view-cart">
               shopping_basket
@@ -41,6 +42,29 @@
         </ul>
       </nav>
     </header>
+
+    <section class="account">
+      <div class="account-wrapper hide">
+        <h1>My account</h1>
+        <p>You can change your password here.</p>
+        <input
+          type="password"
+          class="password"
+          placeholder="Password"
+          required
+        />
+        <input
+          type="password"
+          id="password-confirm"
+          class="password-confirm"
+          required
+          placeholder="Confirm password"
+        />
+        <div class="error"></div>
+        <div class="success"></div>
+        <button class="modify-password-button">Modify password</button>
+      </div>
+    </section>
 
     <section class="view-cart">
       <div class="view-cart-wrapper hide">
