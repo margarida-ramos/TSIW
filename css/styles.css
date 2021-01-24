@@ -51,6 +51,11 @@ h5 {
   color: var(--black);
 }
 
+header {
+  background: linear-gradient(to top, #7474bf, #348ac7);
+  margin-bottom: 24px;
+}
+
 .brand-logo {
   width: 200px;
   height: 100px;
@@ -58,6 +63,7 @@ h5 {
   font-size: 40px;
   font-weight: 900;
   cursor: pointer;
+  color: var(--white);
 }
 
 .main-nav {
@@ -77,7 +83,7 @@ h5 {
 }
 
 .main-nav ul li a {
-  color: var(--black);
+  color: var(--white);
 }
 
 .main-nav ul li .material-icons {
@@ -85,7 +91,7 @@ h5 {
   top: 3px;
   cursor: pointer;
   font-size: 30px;
-  color: var(--black);
+  color: var(--white);
 }
 
 header {
@@ -97,10 +103,12 @@ header .user-wrapper {
   right: 24px;
   top: 6px;
   font-size: 14px;
+  color: var(--white);
 }
 
 header .user-wrapper a {
   font-size: 14px;
+  color: #4ae6ff;
 }
 
 header .user-wrapper.without-login {
@@ -307,6 +315,12 @@ table.shopping-cart .material-icons {
   cursor: pointer;
 }
 
+.faq-wrapper h1,
+.aboutus-wrapper h1,
+.view-cart-wrapper h1 {
+  text-align: center;
+}
+
 .view-cart-wrapper .total {
   position: fixed;
   top: 290px;
@@ -339,6 +353,10 @@ table.shopping-cart .material-icons {
   padding: 24px;
   margin: 0 auto;
   display: flex;
+}
+
+.faq-wrapper {
+  display: block;
 }
 
 .contact-wrapper {
