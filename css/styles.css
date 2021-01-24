@@ -318,6 +318,10 @@ table.shopping-cart .material-icons {
   font-weight: 500;
 }
 
+.view-cart-wrapper .go-back {
+  margin-left: 24px;
+}
+
 .aboutus-wrapper,
 .contact-wrapper,
 .faq-wrapper {
@@ -348,4 +352,20 @@ table.shopping-cart .material-icons {
 
 .contact-wrapper .address {
   margin-top: 24px;
+}
+
+li.shop {
+  position: relative;
+}
+
+li.shop .shop-count {
+  position: absolute;
+  font-size: 13px;
+  bottom: -4px;
+  right: -18px;
+  color: var(--white);
+  background-color: var(--blue);
+  padding: 4px;
+  border-radius: 50%;
+  width: 21px;
 }

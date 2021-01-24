@@ -273,7 +273,7 @@ const login = (e) => {
 
 const maybeLogin = () => {
   const username = localStorage.getItem("username");
-  const users = JSON.parse(localStorage.getItem("users") || "{}");
+  const users = JSON.parse(localStorage.getItem("users") || "[]");
   if (users.filter((u) => u.username === username).length === 1) {
     document.querySelector(".current-username").innerHTML = username;
     document.querySelector(".with-login").classList.remove("hide");
@@ -332,13 +332,24 @@ const signup = (e) => {
 const addToCart = (e) => {
   e.preventDefault();
   const productId = e.currentTarget.closest(".product").getAttribute("data-id");
-
   const basket = JSON.parse(localStorage.getItem("basket") || "[]");
+
   basket.push(productId);
+  localStorage.setItem("basket", JSON.stringify(basket));
+  maybeShowCart();
+};
+
+const maybeShowCart = () => {
+  const basket = JSON.parse(localStorage.getItem("basket") || "[]");
 
   document.querySelector(".shop-count").innerHTML =
     basket.length === 0 ? "" : basket.length;
-  localStorage.setItem("basket", JSON.stringify(basket));
+
+  if (basket.length !== 0) {
+    document.querySelector(".shop-count").classList.remove("hide");
+  } else {
+    document.querySelector(".shop-count").classList.add("hide");
+  }
 };
 
 const _onAboutUsClick = (e) => {
@@ -407,3 +418,4 @@ document
 
 displayProducts();
 maybeLogin();
+maybeShowCart();
