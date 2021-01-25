@@ -234,7 +234,8 @@ footer .footer-links a {
 .feedback-wrapper,
 .account-wrapper,
 .login-wrapper,
-.signup-wrapper {
+.signup-wrapper, 
+.checkout-wrapper{
   width: 100%;
   text-align: center;
 }
@@ -242,7 +243,8 @@ footer .footer-links a {
 .feedback-wrapper h1,
 .account-wrapper h1,
 .login-wrapper h1,
-.signup-wrapper h1 {
+.signup-wrapper h1,
+.checkout-wrapper h1 {
   text-align: center;
   width: 100%;
   margin-bottom: 24px;

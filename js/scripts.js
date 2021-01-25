@@ -31,11 +31,26 @@ const handleNavigate = (event) => {
     case "account":
       showAccount();
       break;
+    case "checkout":
+      showCheckout();
+      break;
     case "products":
     default:
       showProducts();
       break;
   }
+};
+
+const showCheckout = () => {
+  closeAllPanes();
+  const basket = JSON.parse(localStorage.getItem("basket") || "[]");
+  const newBasket = [];
+  localStorage.setItem("basket", JSON.stringify(newBasket));
+  document.querySelector(".checkout-wrapper").classList.remove("hide");
+
+  maybeShowCart();
+  scrollToTop();
+
 };
 
 const showFeedback = () => {
@@ -211,7 +226,11 @@ const closeAllPanes = () => {
   hideShoppingCart();
   hideFeedback();
   hideAccount();
+  hideCheckout();
 };
+
+const hideCheckout = () =>
+  document.querySelector(".checkout-wrapper").classList.add("hide");
 
 const hideAccount = () =>
   document.querySelector(".account-wrapper").classList.add("hide");
@@ -458,6 +477,12 @@ const _onFeedbackClick = (e) => {
   loadView({ view: "feedback" });
 };
 
+const _onCheckoutClick = (e) => {
+  e.preventDefault();
+  scrollToTop();
+  loadView({ view: "checkout" });
+};
+
 const processFeedback = (e) => {
   e.preventDefault();
   // reset message placeholders
@@ -539,28 +564,42 @@ document
   .querySelector("button.feedback-button")
   .addEventListener("click", processFeedback);
 
-document.querySelector("a.logout").addEventListener("click", logout);
+document
+  .querySelector("a.logout")
+  .addEventListener("click", logout);
 
-document.querySelector("button.login-button").addEventListener("click", login);
+document
+  .querySelector("button.login-button")
+  .addEventListener("click", login);
 
-document.querySelector(".view-cart").addEventListener("click", viewCart);
+document
+  .querySelector(".view-cart")
+  .addEventListener("click", viewCart);
 
 document
   .querySelector(".aboutus-btn")
   .addEventListener("click", _onAboutUsClick);
-document.querySelector(".faq-btn").addEventListener("click", _onFaqClick);
+
+document
+  .querySelector(".faq-btn")
+  .addEventListener("click", _onFaqClick);
+
 document
   .querySelector(".contact-btn")
   .addEventListener("click", _onContactClick);
+
 document
   .querySelector(".aboutus-btn-footer")
   .addEventListener("click", _onAboutUsClick);
+
 document
   .querySelector(".faq-btn-footer")
   .addEventListener("click", _onFaqClick);
+
 document
   .querySelector(".contact-btn-footer")
   .addEventListener("click", _onContactClick);
+
 document
   .querySelector(".feedback-btn-footer")
   .addEventListener("click", _onFeedbackClick);
@@ -572,6 +611,10 @@ document
 document
   .querySelector(".modify-password-button")
   .addEventListener("click", _onModifyPasswordClick);
+
+document
+  .querySelector(".checkout")
+  .addEventListener("click", _onCheckoutClick);
 
 displayProducts();
 maybeLogin();
